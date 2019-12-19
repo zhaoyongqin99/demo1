@@ -1,12 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
+import React from "react";
+import ReactDom from "react-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import { ApolloProvider } from "react-apollo";
+import ApolloClient from "apollo-boost";
+import {
+    makeExecutableSchema,
+    addMockFunctionsToSchema
+} from 'graphql-tools';
+import { mockNetworkInterfaceWithSchema } from 'apollo-test-utils';
+import { typeDefs } from './schema';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
-
-ReactDOM.render(<App />, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const schema = makeExecutableSchema({ typeDefs });
+addMockFunctionsToSchema({ schema });
+const mockNetworkInterface = mockNetworkInterfaceWithSchema({ schema });
+const client = new ApolloClient({
+    networkInterface: mockNetworkInterface,
+  });
+ReactDom.render(<Router>
+    <Switch>
+        <ApolloProvider client={client}>
+            <Route path="/" component={App} ></Route>
+        </ApolloProvider>
+    </Switch>
+</Router>, document.getElementById("root"))
