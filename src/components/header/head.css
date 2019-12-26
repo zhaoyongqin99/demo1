@@ -1,0 +1,34 @@
+.active-selected-link{
+    color: #4bc0b5;
+}
+.active-selected-link::before{
+content: '';
+width: 20px;
+height: 4px;
+position: absolute;
+left: 50%;
+transform: translate(-50%);
+bottom: 5px;
+background-color: #4dc0b5;
+border-radius: 10px;
+}
+.transfrom{
+    transform:rotate(45deg);
+}
+.layout-abs{
+    position: absolute;
+    right:9% ;
+    bottom:-13%;
+}
+.logout{
+    position: absolute;
+    top:8px;
+    right: -60px;
+    width: 130px;
+    height: 50px;
+    line-height: 40px;
+    font-size: 18px;
+}
+.icon{
+    font-size: 14px;
+}

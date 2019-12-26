@@ -9,6 +9,7 @@ import {
 } from 'graphql-tools';
 import { mockNetworkInterfaceWithSchema } from 'apollo-test-utils';
 import { typeDefs } from './schema';
+import './css/index.css'
 import App from './App';
 const schema = makeExecutableSchema({ typeDefs });
 addMockFunctionsToSchema({ schema });

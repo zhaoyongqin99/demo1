@@ -1,0 +1,8 @@
+.table-cell{
+    padding: 15px 8px;
+    text-align: center;
+}
+.table-tr{
+    border-bottom: solid 1px #eee;
+    padding: 5px 0;
+}
